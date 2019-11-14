@@ -66,11 +66,12 @@ h2 {
 
 h3 {
   line-height: 1.5;
+  color: white;
   display: inline;
   background-image: linear-gradient(
         transparent 50%,
-        #e1fffe 50%,
-        #b0f8ff 85%,
+        #30a19d 50%,
+        #58b6bf 85%,
         transparent 85%,
         transparent 100%
     );
