@@ -1,0 +1,76 @@
+// global vars 
+
+float randr = 0;
+float randg = 0;
+float randb = 0;
+String gridName = "Feung";
+int counterHSB = 0;
+int counter = 100;
+float a = 0;
+float x = 100;
+
+
+void setup() {
+  size(600, 600);
+  background(255); 
+  stroke(255,200,100,111);
+  strokeWeight(6);
+  frameRate(1);
+  colorMode(HSB,255);  // colorSystem, range (0-400) or color scale
+  // HUE, Saturation , Brightness
+
+}
+
+void draw() {
+  counterHSB = 0;
+  
+   //stroke(200,100,200,100);
+      
+  float s = sin(a);  
+  background(s*222);
+
+  a+=1;
+  x+=1;
+  
+  circle(s*55+x,s*55+x,20);
+  triangle(s*60+x,s*60+x+20,s*60+x+20,s*60+x,s*60+x+25,s*60+x+30);
+  
+
+ 
+
+
+  for (int i = 222; i < width; i += 30) {
+    for (int j = 0; j < height; j += 10) {
+      randr = random(255);
+      randg = random(255);
+      randb = random(255);
+
+      fill(counterHSB,randb,255);
+      counterHSB ++;
+
+      if( counterHSB > 255 ) {
+       counterHSB = 0;
+      }
+
+      circle(i+5, j+5, 20);
+        // concatnation is string + number , longer string 
+      //println("boxes = " + i  );
+      
+      
+   
+      println(gridName + ", down the rabbit hole go! " + randr);
+      //println (frameCount); 
+      
+    }
+  } 
+    record (1111);
+}
+
+    void record (int t) {    //t for total frame count to record
+      if ( frameCount < t) {
+        saveFrame("images/floatingsin_###.png");   //###: frame numbers
+      } else {
+        
+        exit ();
+      }
+  }

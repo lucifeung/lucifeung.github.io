@@ -1,0 +1,89 @@
+//global
+int value = 0;
+int bounce = 0;
+int tCounter = 0;
+int tCounter2 = 800;
+PImage bg;
+PImage bg2;
+PFont f; 
+
+//setup
+void setup() {
+  size(800,400);
+  rectMode(CENTER); 
+  bg = loadImage("bg.jpg");
+  bg2 = loadImage("bg2.jpg");
+    frameRate(100);
+}
+
+void draw() {
+
+  background(bg);
+    if ( mousePressed && keyPressed == true )  {
+    background(bg2);
+    }
+
+  fill(200,random(100),random(255));
+  circle(value,value,22);
+  noStroke();
+  //println(tCounter);
+  
+
+
+ value+=1;
+ bounce+=1;
+  if (value > height+2) {
+  fill(200,random(100),random(255));
+  circle(value,bounce-=2,22);
+  //  value = width/2;
+  }
+  if (value > width) {
+    value = 0;
+    bounce = 0;
+  }
+  circle (mouseX,mouseY,22);
+  
+     //Font added
+      //printArray(PFont.list());
+      //load font
+      f = createFont("Blackadder ITC", 29);
+      //set the font for drawing
+      textFont(f);
+      // set color of text
+      fill(221, 232, 253);
+      //draw out text
+      text("Head in the clouds ~", tCounter, 100);
+      if ( mousePressed == true )  {
+        fill(236,174,161);
+        text("Heart on the ground ~",tCounter2,300);
+      }
+      
+      
+     //println (frameCount);
+      
+     //record (1111);
+     
+  tCounter ++;
+  tCounter2 -- ;
+  if (tCounter > width ) {
+    tCounter =0;
+  }
+  if (tCounter2 < 0) {
+    tCounter2 = width;
+   }
+}
+  void mousePressed() {
+  background(bg2);
+    }
+
+     
+   //void record (int t) {
+   //   if ( frameCount < t) {
+   //     saveFrame("images/movingtexts_###.png");   //###: frame numbers
+   //   } else {
+        
+   //     exit ();
+   //   }
+   
+
+   //}
