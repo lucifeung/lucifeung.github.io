@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+
 }
 
 body {
@@ -58,11 +59,20 @@ p {
   color: white;
 }
 
+a {
+  text-align: left;
+  /* font-family: 'Domine', serif; */
+  font-size: 1em;
+  line-height: 1.8;
+  color: white;
+}
+
+
 h2 {
   text-align: center;
   color: white;
   font-family: 'DM Serif Display', serif;
-  font-size: :0.3em;
+  font-size: :0.1em;
 
 }
 @import url('https://fonts.googleapis.com/css?family=Gochi+Hand');
@@ -108,6 +118,17 @@ h4 {
 
 .portfolio {
   width:50%;
+}
+
+.illustration {
+  width:80%;
+
+}
+
+.rowsection {
+  width: 60em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .glow {
