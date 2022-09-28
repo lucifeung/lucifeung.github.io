@@ -67,6 +67,9 @@ a {
   color: white;
 }
 
+a:visited {
+  color:blue;
+}
 
 h2 {
   text-align: center;
@@ -121,7 +124,7 @@ h4 {
 }
 
 .illustration {
-  width:80%;
+  width:90%;
 
 }
 
@@ -148,8 +151,57 @@ h4 {
     text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
   }
 }
+
+.top-matter {
+  margin: auto;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.top-matter a {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.desc {
+  max-width: 800px;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-bottom: 50px;
+}
+
+.gallery-container-a,.gallery-container-b {
+  margin: auto;
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5px;
+  border: 6px dotted white;
+}
+
+.gallery-item-a {
+  padding: 30px;
+  text-align: center;
+  flex: 1 1 auto;
+}
+
+.gallery-container-a img:hover {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+.gallery-container-b img:hover {
+	-webkit-transform: rotate(5deg);
+	transform: rotate(5deg);
+}
+
+
+
+
 footer {
-  text-align: left;
+  text-align: center;
+  padding-right: 30px;
   color: white;
   font-size: 0.7em;
   font-family: 'Domine', serif;
