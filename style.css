@@ -31,7 +31,7 @@ body {
 }
 
 .menu li a:hover {
-  color:#c2fffe;
+  color:#8cffeb;
   transition: 0.5s;
   text-decoration: underline;
 }
@@ -115,12 +115,12 @@ h4 {
 }
 
 .column {
-  flex: 33.33%;
-  padding: 5px;
+  flex: 50%;
+  padding: 50px;
 }
 
 .portfolio {
-  width:50%;
+  width:20%;
 }
 
 .illustration {
@@ -187,14 +187,11 @@ h4 {
 }
 
 .gallery-container-a img:hover {
-	-webkit-transform: scale(1.5);
-	transform: scale(1.5);
+	-webkit-transform: scale(1.4);
+	transform: scale(1.4);
 }
 
-.gallery-container-b img:hover {
-	-webkit-transform: rotate(5deg);
-	transform: rotate(5deg);
-}
+
 
 
 
