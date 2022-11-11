@@ -111,7 +111,7 @@ abbr {
 }
 
 .box1 {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.15);
   width: 50;
   padding: 20px;
   margin: auto;
@@ -120,7 +120,7 @@ abbr {
 }
 
 .box2 {
-  background-color: rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, .2);
   width: auto;
   padding: 20px;
   margin: auto;
@@ -225,7 +225,7 @@ abbr {
   content: "SJSU's Digital Media Artist";
   visibility: visible;
   display: block;
-  background-color: rgba(0, 0, 0, .05);
+  background-color: rgba(0, 0, 0, .1);
   width: 140px;
   padding: 20px;
   margin: 20px;
@@ -529,20 +529,32 @@ abbr {
   -webkit-animation-iteration-count: 1;
 }
 
-.gallery-container-a, .gallery-container-b {
+.gallery-container-a {
+  margin: auto;
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  border: 3px dashed white;
+  background-color: rgba(0, 0, 0, .3);
+  width: 800px;
+  padding: 25px;
+  color: #fff;
+  border-radius: 25px;
+}
+.gallery-container-b {
   margin: auto;
   max-width: 1000px;
   display: flex;
   flex-wrap: wrap;
   /* justify-content: center; */
   border: 3px dashed white;
-  background-color: rgba(0, 0, 0, .15);
-  width: auto;
+  background-color: rgba(0, 0, 0, .3);
+  width: 600;
   padding: 25px;
   color: #fff;
   border-radius: 25px;
 }
-
 .gallery-item-a {
   padding: 1px;
   /* text-align: center; */
@@ -552,6 +564,10 @@ abbr {
 .gallery-container-a img:hover {
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
+  opacity: 0.85;
+  /* -webkit-filter: blur(1px);
+	filter: blur(1px); */
+
 }
 
 .row {
@@ -564,7 +580,7 @@ abbr {
 }
 
 .portfolio {
-  margin: 30px;
+  margin: center;
   width: 20%;
 }
 
@@ -574,7 +590,7 @@ abbr {
 }
 
 .rowsection {
-  width: 60em;
+  width: 50em;
   margin-left: auto;
   margin-right: auto;
 }
