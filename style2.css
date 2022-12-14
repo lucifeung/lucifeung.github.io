@@ -6,6 +6,7 @@ body {
   font-family: 'Mochiy Pop One', sans-serif;
   margin: auto;
   background-image: url("images/scene.png");
+  background-color: rgba(0, 0, 0, 0.5);
   /* background-image: url("images/background1.jpg"); */
   /* background-repeat: no-repeat;
 	/* Set a specified height, or the minimum height for the background image */
@@ -18,6 +19,30 @@ body {
   background-repeat: no-repeat;
   /* Scale the background image to be as large as possible */
   background-size: cover;
+}
+
+.menu {
+  margin-bottom: 1vh;
+  margin-left: 1vh;
+}
+
+.menu li {
+  float: left;
+  padding-right: 10px;
+  font-size: 0.9em;
+  font-family: 'Galada', cursive;
+  list-style-type: none;
+}
+
+.menu li a {
+  color: #fde2ea;
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  color:#6a58f3;
+  transition: 0.3s;
+  text-decoration: underline;
 }
 
 h1 {
@@ -54,17 +79,24 @@ p.move-mid {
 }
 
 a {
-  color: #dfdfdf;
+  color: white;
+
+}
+
+a:hover {
+  color:#fab8ca;
+  transition: 0.3s;
+  text-decoration: underline;
 }
 
 /*Styles for the overlay*/
-#blocker {
+/* #blocker {
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-}
-
+} */
+/*
 #instructions {
   width: 100%;
   height: 100%;
@@ -77,4 +109,4 @@ a {
   text-align: center;
   font-size: 18px;
   cursor: pointer;
-}
+} */
