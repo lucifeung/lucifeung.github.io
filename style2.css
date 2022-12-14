@@ -27,6 +27,7 @@ body {
 }
 
 .menu li {
+  color: white;
   float: left;
   padding-right: 10px;
   font-size: 0.9em;
