@@ -1,0 +1,147 @@
+
+
+
+int count = 666;
+int col = 100;
+float rot; 
+float randc = 0;
+float counter1, counter2, counter3;
+int[] opa = new int[count]; //opacity
+
+Twinkle c1;
+//Twinkle c1, c2;  //make a class
+
+void setup() {
+  size (600, 600);
+  counter1 = 0;
+  counter2 = 120;
+  counter3 = height;
+  
+  c1 = new Twinkle (200,200,150, 20);   //make a class
+  //c2 = new Twinkle (500,300,20,20);
+  
+  colorMode(HSB,255);
+  //frameRate(22);
+  }
+
+
+void draw() {
+    background (200);
+  //background (25, 7, 100);
+  //println (frameCount);
+  
+    randc = random(100,111);
+      col ++;
+
+      if( col > 255 ) {
+       col = 100;
+      }
+      
+      
+      for (int i = 0; i < opa.length; i++) {
+      opa[i] = int(random(100,200));
+      fill(col,100,200,opa[i]);
+       
+      }
+
+  
+  float a = (counter1 / (float) 600) * 600; // Pick an angle 0 to (*f) degrees based on the frame rate
+  rot = radians(a);   // Convert it to radians
+  translate(width/2,height-50);  // Start the tree from the bottom of the screen
+  //ellipse(22,22,22,22); //Draw a line 120 pixels
+  //translate(10,10);  // Move to the end of that line
+  //split(222);   // Start the recursive branching!
+  c1.split(200,radians(a));
+  
+          //record (1111);
+          
+  counter1+=0.5;
+  counter2 =-120;
+  }
+        
+class Twinkle {  //passing everythig we had into a class and didnt rl change anything
+  
+  float rot = 0;
+  float branchSize =0;
+  float posX,posY;
+  
+  float rra;  //random root angle
+  float rrs;  //random root scale
+  
+  Twinkle (float lx, float ly, float lb, float la) {  //la for local angle
+    posX = lx;
+    posY = ly;
+    branchSize = lb;
+    rot = la;
+    rra = random (-20,20);
+    rrs = random (.5,2);
+    
+    split(branchSize,rot);
+  } 
+  
+  
+  void display () {
+    push();
+    
+    //translate (posX,posY);
+    //rotate(branchSize, rot);  //branch size & local angle
+    rotate (radians (rra));
+    scale (rrs);
+    pop();
+    
+  }
+  
+  void update(float la){
+    rot = la;
+  }
+  
+  //description of the splitting branch size w local angle
+  void split(float h, float la) { //120 //80 //55 //38 //20 //15...
+    h *= 0.666;      //slit into 2/3 of the previous one
+    if (h > 2) {   //which is true until it split to <2
+      //first part
+      push();    // Save the current state of transformation 
+      rotate(la);   // Rotate by rot
+      star(0, 0, 3, 7, 5);  // Draw stars
+      translate(222,-h); // Move to the end of the star
+      split(h,la);       // call to draw two new stars
+      pop();  
+      
+      //2nd part that reoccurs
+      push();
+      rotate(-la);
+      star(0, 0, 3, 7, 5); 
+      translate(222, -h);
+      split(h,la);
+      pop();
+      noStroke();
+      //stroke(randc); 
+  }
+  }
+  
+   //Draw the star shape
+    void star(float x, float y, float radius1, float radius2, int npoints) {
+      float angle = TWO_PI / npoints;
+      float halfAngle = angle/2.0;
+      beginShape();
+      for (float a = 0; a < TWO_PI; a += angle) {
+        float sx = x + cos(a) * radius2;
+        float sy = y + sin(a) * radius2;
+        vertex(sx, sy);
+        sx = x + cos(a+halfAngle) * radius1;
+        sy = y + sin(a+halfAngle) * radius1;
+        vertex(sx, sy);
+      }
+      endShape(CLOSE);
+        
+}
+}
+      
+      //void record (int t) {    //choose t for total frame count to record
+      //  if ( frameCount < t) {
+      //    saveFrame("images/twinkles_###.png");   //###: frame numbers
+      //  } else {
+          
+      //    exit ();
+      //  }
+      //}

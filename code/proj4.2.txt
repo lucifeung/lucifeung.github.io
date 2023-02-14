@@ -1,0 +1,109 @@
+
+// This contains the use of both Scenemanager and P5.play
+// Documentation and additional examples of these libraries can be found at:
+//https://github.com/mveteanu/p5.SceneManager
+//http://molleindustria.github.io/p5.play/
+
+
+var image1_up, image2_over, snd1, snd2, snd3;
+let bg;
+let bg1;
+let fishfamily1 = []
+let fishfamily2 = []
+let fishfamily3 = []
+let fishes = []
+var bubbles = [];
+let myButton;
+let myButton1;
+let myButton2;
+let myButton3;
+
+
+function preload() {
+  bg = loadImage('assets/fishtank.png');
+  bg1 = loadImage('assets/intro.png');
+  f1s = loadImage('assets/f1s.png');
+  f2s = loadImage('assets/f2s.png');
+  f3s = loadImage('assets/f3s.png');
+
+  fishfamily1[0] = loadImage('assets/f1.png')     //fish family 1 arrays
+  fishfamily1[1] = loadImage('assets/f11.png')
+  fishfamily1[2] = loadImage('assets/f111.png')
+
+  fishfamily2[0] = loadImage('assets/f2.png')     //fish family 2 arrays
+  fishfamily2[1] = loadImage('assets/f22.png')
+  fishfamily2[2] = loadImage('assets/f222.png')
+
+  fishfamily3[0] = loadImage('assets/f3.png')     //fish family 3 arrays
+  fishfamily3[1] = loadImage('assets/f33.png')
+  fishfamily3[2] = loadImage('assets/f333.png')
+
+   snd1 = loadSound("sound/pop.mp3");
+   snd2 = loadSound("sound/bgm.mp3");
+   snd3 = loadSound("sound/bubble.mp3");
+
+}
+
+
+// define your p5.play sprites as global objects first.
+var asterisk;
+
+
+// global manager object
+var mgr;
+
+function setup() {
+    createCanvas(700, 600);
+
+     mgr = new SceneManager();
+
+     asterisk = createSprite(0, 0);
+     asterisk.addAnimation("normal", "assets/asterisk_explode0001.png",  "assets/asterisk_explode0011.png");
+     asterisk.addAnimation("stand", "assets/asterisk_stretching0001.png",  "assets/asterisk_stretching0008.png");
+     asterisk.addAnimation("square", "assets/bubbly0001.png",  "assets/bubbly0004.png");
+
+    // Preload scenes. Preloading is normally optional
+    // ... but needed if showNextScene() is used.
+    mgr.addScene (scene1);
+    mgr.addScene (scene2);
+    mgr.addScene (scene3);
+    mgr.showNextScene();
+
+}
+
+function draw()
+{
+
+    // passthe current draw function into the SceneManager
+    mgr.draw();
+}
+
+function mousePressed()
+{
+   // pass the mousePressed message into the SceneManager
+  mgr.mousePressed();
+}
+
+function keyPressed()
+{
+
+    // You can optionaly handle the key press at global level...
+    switch(key)
+    {
+        case '1':
+            mgr.showScene( scene1 );
+            break;
+        case '2':
+            mgr.showScene( scene2 );
+            break;
+        case '3':
+            mgr.showScene( scene3 );
+            break;
+        case '4':
+            mgr.showScene( scene4 );
+            break;
+    }
+
+    // ... then dispatch via the SceneManager.
+    mgr.keyPressed();
+}

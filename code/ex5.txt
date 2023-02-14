@@ -1,0 +1,257 @@
+// Using array to create multiple objects.
+// Each object is birthed and stored as an item in the array.
+
+Fish[] fishArr= new Fish[22];
+
+int currentFish;
+
+void setup() {
+  size(1000,600);
+  //colorMode(HSB,255);
+  noStroke();
+  smooth(); 
+  
+  currentFish = 0;
+  
+ color col;
+  for (int i = 0; i < fishArr.length; i++) {
+    col = color(255,random(100,200),random(100,200));
+    //create fish array making them spawn in random height, each spacing randomly from 10 - width
+    fishArr[i] = new Fish(col,random(10,width),random(height)," Gulu~"); 
+    
+  }
+}
+
+void draw() {
+  //background(152,162,225);
+  background(87,108,164);
+  
+  for (int i = 0; i < fishArr.length; i++) {
+  fishArr[i].moving();
+  fishArr[i].display();
+  fishArr[i].floating();
+ 
+  }
+  
+      crossMarks();
+    //record (1111);
+}
+
+void mousePressed() {
+  
+  println("floating");
+  
+  fishArr [currentFish].start();
+  
+  currentFish++;
+  if (currentFish > fishArr.length) {
+    currentFish =0;
+  }
+  
+  for (int i = 0; i < fishArr.length; i++) {
+  fishArr[i].newDirection();
+  fishArr[i].newRotation();
+
+  }
+  
+
+  
+
+}
+
+  
+  
+  void crossMarks(){
+
+  stroke(random(150,255));
+  strokeWeight(6);
+ 
+  push();
+  translate(30,30);
+  line(0,0,20,0);
+  line(0,0,0,20); 
+  pop();
+
+  push();
+  translate(width-30,30);
+  rotate(radians(90));
+  line(0,0,20,0);
+  line(0,0,0,20);
+  pop();
+
+
+  push();
+  translate(30,height -30);
+  rotate(radians(-90));
+  line(0,0,20,0);
+  line(0,0,0,20); 
+  pop();
+
+  push();
+  translate(width-30,height -30);
+  rotate(radians(-180));
+  line(0,0,20,0);
+  line(0,0,0,20);
+  pop();
+}
+
+class Fish { 
+  
+  color c;
+  float xpos;
+  float ypos;
+  String orifice;
+  float xspeed;
+  float yspeed;
+  float rot;
+  float rota;
+  int spinner;
+  int vis;  //visible
+  int fl;  //floating from right to left
+
+  
+  Fish (color tempC, float tempXpos, float tempYpos, String oa) { 
+    // tempC, tempXpos, etc. are the argument vars that pass data to the class vars
+    c = tempC;
+    xpos = tempXpos;
+    ypos = tempYpos;
+    //xpos = 200;
+    //ypos = 200;
+    
+    orifice =  "Gulu" + oa;
+    
+    xspeed = random(-.1,.1);
+    yspeed = random(-.1,.1);
+    rot = (0.0);
+    rota = random(-.1,.1);
+    spinner = int(random(2));
+    fl = int(random(2));
+    println(spinner);   
+    vis = 0;
+
+
+  }
+  
+  
+  
+  void start () {
+    vis = 1;
+  }
+  
+  // functions inside of Classes are called methods
+  void display() {
+    
+    if (vis == 1) {
+      fish ();
+    }
+  }
+  
+    
+    void fish() {
+    
+    push ();
+    translate(xpos,ypos);
+    
+    if (spinner ==1) {
+    rotate (radians(random(90)));
+    
+    }
+    
+    noStroke();
+    fill(c);
+    rectMode(CENTER);
+    ellipse(0,0,random(40,50) +10,random(30,40));
+    triangle(0, 0, random(40,45), random(18,22), random(40,45), random(-18,-22));
+    fill(random(200,255));
+    ellipse(-10,-8,5,5);
+
+    
+    pop();
+  
+  
+      push();
+       translate(xpos,ypos);
+       text( orifice, 5, -15);
+       fill(202,216,255);
+      pop();
+  
+  }
+
+  void moving() {
+    
+    xpos = xpos + xspeed;
+    ypos = ypos + yspeed;
+    xpos += random(-2,2);
+    ypos += random(-2,2);
+    rot+=rota;
+    
+    if (xpos > width) {
+      xpos = 0;
+    }
+    
+    if (xpos < 0) {
+      xpos = width;
+    }
+    
+    if (ypos > height) {
+      ypos = 0;
+    }
+    
+    if (ypos < 0) {
+      ypos = height;
+    }
+    
+   
+ 
+  }
+  
+  
+  void newDirection() {
+    xspeed = random(-2,2);
+    yspeed = random(-2,2);
+  }
+  
+  void newRotation() {
+    rota = random (-3,-3);
+  }
+  
+  void floating()  {
+    push();
+    
+    if (fl == 1)  {
+      xpos -= random(10);
+    }
+    //noStroke();
+    //fill(c);
+    //rectMode(CENTER);
+    //translate(xpos,ypos);
+    //ellipse(0,0,random(40,50) +10,random(30,40));
+    //triangle(0,0, random(40,45), random(18,22), random(40,45), random(-18,-22));
+    //fill(random(200,255));
+    //ellipse(random(-10,15),random(-8,-5),5,5);
+   
+    pop();
+  } 
+  
+  //  void bubble()  {
+  //    push();
+  //    if (bb == 1)  {
+  //    ypos += random(10);
+  //    }
+  //    noStroke();
+  //    ellipse(100,100,random(40,50),random(40,50));
+  //    fill(255,0);
+  //    pop();
+  //} 
+    
+   
+  }
+
+      //void record (int t) {    //choose t for total frame count to record
+      //  if ( frameCount < t) {
+      //    saveFrame("images/fishie_###.png");   //###: frame numbers
+      //  } else {
+          
+      //    exit ();
+      //  }
+      //}

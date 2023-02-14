@@ -1,0 +1,183 @@
+
+  //make a 16x16 array, duplicate it with a second array and draw something else with text
+var numbers = [90, 30, 30, 45, 12, 78, 56, ];
+
+
+var catarr = [   //17x19
+  [3, 3, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 3, 1, 3, 3],
+  [3, 3, 1, 0, 1, 3, 3, 3, 3, 1, 0, 1, 3, 3, 3, 1, 0, 1, 3],
+  [3, 3, 1, 0, 4, 1, 1, 1, 1, 4, 0, 1, 3, 3, 3, 1, 4, 4, 1],
+  [3, 1, 0, 0, 0, 4, 4, 0, 4, 0, 0, 4, 1, 3, 3, 3, 1, 4, 1],
+  [3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 3, 1, 0, 1],
+  [1, 4, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 4, 1, 1, 1, 1, 4, 1],
+  [1, 0, 2, 0, 0, 1, 0, 1, 0, 0, 2, 0, 4, 4, 4, 4, 4, 4, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 4, 4, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 4, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1],
+  [1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1],
+  [3, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 3],
+  [3, 3, 1, 4, 0, 4, 4, 0, 4, 4, 0, 4, 0, 4, 4, 4, 1, 3, 3],
+  [3, 3, 3, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 3, 3, 3],
+  [3, 3, 3, 1, 1, 3, 3, 1, 1, 3, 3, 3, 1, 1, 1, 1, 3, 3, 3]
+
+
+  ];
+
+
+var catarr2 = [ //  11x9
+    ["meo", "mew", "mew", "mew", "mew", "mew", "mew", "mew", "meo"],
+    ["mew", "meo", "meo", "meo", "meo", "meo", "meo", "meo", "mew"],
+    ["mew", "meo", "mew", "meo", "mew", "meo", "mew", "meo", "mew"],
+    ["mew", "meo", "mew", "meo", "mew", "meo", "mew", "meo", "mew"],
+    ["mew", "meo", "mew", "mew", "mew", "meo", "mew", "meo", "mew"],
+    ["mew", "meo", "mew", "meo", "mew", "meo", "mew", "meo", "mew"],
+    ["mew", "meo", "mew", "meo", "mew", "meo", "mew", "meo", "mew"],
+    ["mew", "meo", "meo", "meo", "meo", "meo", "meo", "meo", "mew"],
+    ["meo", "mew", "mew", "mew", "mew", "mew", "mew", "mew", "meo"],
+    ["meo", "meo", "meo", "mew", "meo", "meo", "meo", "meo", "meo"],
+    ["meo", "meo", "meo", "meo", "mew", "meo", "meo", "meo", "meo"],
+];
+
+
+
+
+
+function setup() {
+    createCanvas(600, 600);
+    background(255, 209, 209);
+    fill(100);
+
+    //translate
+    push();
+    translate(50, 20);
+    drawcatarray1();
+    pop();
+
+    push();
+    translate(100, 250);
+    scale(.65);
+    drawcatarray2();
+    pop();
+
+    push();
+    translate(430, 110);
+    scale(.25);
+    drawcatarray3();
+    pop();
+
+    push();
+    translate(410, 40);
+    scale(.25);
+    drawcatarray4();
+    pop();
+
+}
+
+
+function drawcatarray1() {      //bubble big cat say hi
+
+
+            textSize(19);
+      for ( var i = 0; i < catarr2.length; i++ ) {
+          for ( var j = 0; j < catarr2[0].length; j++ ) {
+
+                 let data = catarr2[i][j];
+                 if ( data == "meo" ) {
+                     fill(255,100);
+                 }
+
+                 if ( data == "mew" ) {
+                     fill(0);
+                 }
+                 text(data,(j * 30), (i * 20), 20, 20);
+          }
+      }
+
+}
+function drawcatarray4() {      //bubble lil cat say hi
+
+
+            textSize(19);
+            stroke(0,50);
+      for ( var i = 0; i < catarr2.length; i++ ) {
+          for ( var j = 0; j < catarr2[0].length; j++ ) {
+
+                 let data = catarr2[i][j];
+                 if ( data == "meo" ) {
+                     fill(255,100);
+                 }
+
+                 if ( data == "mew" ) {
+                     fill(75,32,27);
+                 }
+                 rect((j * 30), (i * 20), 30, 20);
+          }
+      }
+
+}
+//DRAW PUSHEEN THE CAT
+
+function drawcatarray2() {      //draw big gray cat
+      stroke (0,100);
+      for ( var i = 0; i < catarr.length; i++ ) {
+          for ( var j = 0; j < catarr[0].length; j++ ) {
+
+                 let data = catarr[i][j];
+                 if ( data == 0 ) {
+                     fill(176,176,176);
+                 }
+
+                 if ( data == 1 ) {
+                     fill(0);
+                 }
+
+                 if ( data == 2 ) {
+                     fill(232,143,145);
+                 }
+
+                 if ( data == 3 ) {
+                     fill(255,100);
+                 }
+
+                 if ( data == 4 ) {
+                     fill(70);
+                 }
+                 rect((j * 30), (i * 30), 25, 25,5);
+          }
+      }
+
+}
+
+
+function drawcatarray3() {      //draw small yellow cat
+      stroke (0,100);
+      for ( var i = 0; i < catarr.length; i++ ) {
+          for ( var j = 0; j < catarr[0].length; j++ ) {
+
+                 let data = catarr[i][j];
+                 if ( data == 0 ) {
+                     fill(255,235,176);
+                 }
+
+                 if ( data == 1 ) {
+                     fill(75,32,27);
+                 }
+
+                 if ( data == 2 ) {
+                     fill(232,143,145);
+                 }
+
+                 if ( data == 3 ) {
+                     fill(255,100);
+                 }
+
+                 if ( data == 4 ) {
+                     fill(238,210,133);
+                 }
+                 ellipse((j * 30), (i * 30), 30, 30);
+          }
+      }
+
+}

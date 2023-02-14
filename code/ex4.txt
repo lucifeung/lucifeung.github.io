@@ -1,0 +1,105 @@
+
+int count = 66;
+float[] posX = new float[count];
+float[] posY = new float[count];
+float[] speedX = new float[count];
+float[] speedY = new float[count];
+float[] sizeW = new float[count];
+float[] sizeH = new float[count];
+int[] colors = new int[count];
+int[] opa = new int[count]; //opacity
+int[] rot = new int [count];  //rotation
+int[] obj = new int [count]; //object
+int[] sc = new int [count]; //scale
+
+void setup() {
+  size(600, 600);
+  for (int i=0; i < posX.length; i++) {
+    posX[i] = width/2;
+    posY[i] = height/2;
+    speedX[i] = random(-5, 5);
+    speedY[i] = random(-5, 5);
+    sizeW[i] = random(11, 22);
+    sizeH[i] = random(11,22);
+    colors[i] = int(random(0, 255));
+    opa[i] = int(random(100,200));
+    rot[i] = int(random(360));
+    obj[i] = int(random(0,3));  //from 0-1-2
+    sc[i] = int(random(0,3));  //scale x1 or x2
+    
+  }
+  
+  println(frameRate);
+}
+
+void draw() {
+  background(225,250,203);
+  fill(255,218,199);
+  rect(40, 40, width-80, height-80);
+  noStroke();
+  for (int i = 0; i < posX.length; i++) {
+    
+    
+  
+    //update all positions
+    posX[i] += speedX[i];
+    posY[i] += speedY[i];
+ 
+    ////draw all balls
+    //fill(0,10,colors[i], opa[i]);
+    //ellipse(posX[i], posY[i], sizeW[i], sizeW[i]);
+    //noStroke();
+  
+   
+   push ();
+   translate (posX[i], posY[i]);  //if want to translate the position of everything has to be reset into 0
+   rotate (rot[i]);
+   scale (sc[i]);
+   
+      //draw the flowers
+      //petals
+      fill(252,166,colors[i],opa[i]);
+      stroke(255,100);
+      
+      
+      if (obj[i] <1) {        //=0
+        ellipse(posX[i], posY[i], sizeW[i], sizeW[i]);
+      } else if (obj[i] >2) {  //=1
+        rect(posX[i], posY[i], sizeW[i], sizeW[i]);
+      } else {                 //=2
+        triangle(posX[i], posY[i], posX[i]+sizeW[i], posY[i]+sizeW[i], posX[i]+22, posY[i]);
+      }
+    
+      
+      circle(0, -12, 18);
+      circle(-12, -2, 18);
+      circle(12, -2, 18);
+      circle(-8,12, 18);
+      circle(8, 12, 18);
+      //inside
+      fill(255,252,151,opa[i]);
+      circle(0, 1, 12);
+   
+    pop();   
+
+    
+    //check boundaries for all flowers
+    if (posX[i] < 40+sizeW[i]/2 || posX[i] > (width-40)-sizeW[i]/2 ) {
+      speedX[i] = -speedX[i];
+    }
+    if (posY[i] < 40+sizeW[i]/2 || posY[i] > (height-40)-sizeW[i]/2) {
+      speedY[i] = -speedY[i];
+    }
+  }
+     record (1111);
+
+}
+  
+        void record (int t) {    //choose t for total frame count to record
+          if ( frameCount < t) {
+            saveFrame("images/bounce_###.png");   //###: frame numbers
+          } else {
+            
+            exit ();
+          }
+        }
