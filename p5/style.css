@@ -1,1 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash|DM+Serif+Display|Domine|Galada|Nunito|Pacifico&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+  background-image: url("images/background2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.menu {
+  margin-bottom: 2vh;
+  margin-left: 5vh;
+}
+
+.menu li {
+  float: left;
+  padding-right: 30px;
+  font-size: 1.5em;
+  font-family: 'Galada', cursive;
+  list-style-type: none;
+}
+
+.menu li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  color:#c2fffe;
+  transition: 0.5s;
+  text-decoration: underline;
+}
+
+
+#title {
+  font-family: 'Galada', cursive;
+  color: white;
+  font-size: 3em;
+  margin-top: 5vh;
+  margin-bottom: 2vh
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-family: 'DM Serif Display', serif;
+}
+
+p {
+  text-align: center;
+  font-family: 'Domine', serif;
+  font-size: 1em;
+  line-height: 1.8;
+  color: white;
+}
+
+a {
+  text-align: left;
+  /* font-family: 'Domine', serif; */
+  font-size: 1em;
+  line-height: 1.8;
+  color: white;
+}
+
+
+h2 {
+  text-align: center;
+  color: white;
+  font-family: 'DM Serif Display', serif;
+  font-size: :0.1em;
+
+}
+@import url('https://fonts.googleapis.com/css?family=Gochi+Hand');
+
+h3 {
+  line-height: 1.5;
+  color: white;
+  display: inline;
+  text-align: center;
+  background-image: linear-gradient(
+        transparent 50%,
+        #30a19d 50%,
+        #58b6bf 85%,
+        transparent 85%,
+        transparent 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    animation: animatedBackground 2s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s forwards;
+}
+
+@keyframes animatedBackground {
+    to {
+        background-size: 100% 100%;
+    }
+}
+
+h4 {
+  text-align: center;
+  color: #d900bf;
+  font-family: 'DM Serif Display', serif;
+  font-size: :0.1em;
+
+}
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+
+.portfolio {
+  width:50%;
+}
+
+.illustration {
+  width:90%;
+
+}
+
+.rowsection {
+  width: 60em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+footer {
+  text-align: left;
+  color: white;
+  font-size: 0.7em;
+  font-family: 'Domine', serif;
+}
